@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gopi | Computer Engineering Student, QUB</title>
+<meta name="description" content="Portfolio of Gopi, a BEng Computer Engineering student at Queen's University Belfast exploring software, applied AI, backend systems and fintech.">
+<meta property="og:title" content="Gopi | Computer Engineering Portfolio">
+<meta property="og:description" content="Building intelligent software and the systems behind it.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1B30'/%3E%3Ctext x='32' y='44' font-size='34' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='%2322D3EE'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#071426;--bg2:#0B1B30;--card:#0E2036;--a1:#22D3EE;--a2:#38BDF8;--text:#F8FAFC;--muted:#94A3B8;--line:#20364F;
+--head:"Space Grotesk",system-ui,sans-serif;--body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font:400 1rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--a1);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+.alt{background:var(--bg2)}
+h1,h2,h3{font-family:var(--head);line-height:1.15;letter-spacing:-.02em}
+h2{font-size:clamp(1.7rem,3.5vw,2.3rem);margin-bottom:12px}
+.sub{color:var(--muted);max-width:60ch;margin-bottom:36px}
+.muted{color:var(--muted)}
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(7,20,38,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:700 1.25rem var(--head);letter-spacing:.02em}.logo span{color:var(--a1)}
+nav ul{display:flex;gap:4px;list-style:none;padding:0}
+nav a.l{display:block;padding:8px 12px;border-radius:8px;color:var(--muted);font-size:.93rem;font-weight:500;position:relative}
+nav a.l:hover{color:var(--text)}
+nav a.l.active{color:var(--text)}
+nav a.l.active::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:var(--a1);border-radius:2px}
+.right{display:flex;gap:10px;align-items:center}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--text);width:40px;height:40px;border-radius:10px;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;font:600 .93rem var(--body);border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+.btn:hover{border-color:var(--a1);transform:translateY(-1px)}
+.btn.p{background:linear-gradient(135deg,var(--a1),var(--a2));color:#06202c;border:0}
+.btn.p:hover{filter:brightness(1.08)}
+.btn.sm{padding:7px 14px;font-size:.85rem}
+[hidden]{display:none!important}
+/* hero */
+.hero{padding:72px 0 88px}
+.hgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.eyebrow{color:var(--a1);font:600 .8rem var(--head);letter-spacing:.14em;margin-bottom:18px}
+h1{font-size:clamp(2.2rem,5vw,3.5rem);margin-bottom:20px}
+.hero p.lead{color:var(--muted);font-size:1.1rem;max-width:52ch;margin-bottom:28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.meta{display:flex;flex-wrap:wrap;gap:18px;align-items:center;color:var(--muted);font-size:.9rem}
+.meta a:hover{color:var(--a1)}
+.pill{border:1px solid var(--line);background:var(--card);padding:5px 12px;border-radius:99px;font-size:.82rem;color:var(--muted)}
+.art{background:linear-gradient(160deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:20px;padding:16px}
+.art svg{width:100%;height:auto;display:block}
+.pulse{animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+@keyframes dash{to{stroke-dashoffset:-24}}
+.flow{stroke-dasharray:4 8;animation:dash 2.5s linear infinite}
+
+/* Editable profile portrait: replace assets/profile-portrait.jpg with your own photo later. */
+.portrait-frame{position:relative;min-height:430px;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;border:1px solid var(--line);border-radius:20px;
+  background:radial-gradient(ellipse at 55% 45%,rgba(34,211,238,.18),transparent 60%),linear-gradient(160deg,var(--card),var(--bg2))}
+.portrait-frame::before{content:"";position:absolute;width:74%;aspect-ratio:1;border:1px solid rgba(34,211,238,.45);
+  border-radius:50%;box-shadow:0 0 55px rgba(34,211,238,.12);pointer-events:none}
+.portrait-frame img{position:relative;z-index:1;display:block;width:100%;height:100%;max-height:520px;
+  object-fit:contain;object-position:center bottom;filter:drop-shadow(0 14px 30px rgba(0,0,0,.25))}
+.portrait-note{position:absolute;z-index:2;left:14px;bottom:14px;padding:6px 10px;border:1px solid var(--line);
+  border-radius:999px;background:rgba(7,20,38,.86);color:var(--muted);font-size:.75rem}
+@media(max-width:960px){.portrait-frame{min-height:360px}}
+@media(max-width:620px){.portrait-frame{min-height:300px}.portrait-frame img{max-height:390px}}
+
+/* cards */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.card h3{font-size:1.1rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.95rem}
+.ico{width:40px;height:40px;border-radius:10px;background:rgba(34,211,238,.1);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:14px;color:var(--a1)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:36px}
+.about p+p{margin-top:14px}.about p{color:var(--muted)}
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:99px;padding:5px 12px;font-size:.88rem;background:var(--bg2)}
+.dot{width:8px;height:8px;border-radius:50%}
+.used{background:var(--a1)}.learning{background:var(--a2);opacity:.6}.exploring{background:transparent;border:1.5px solid var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:.85rem;margin-top:24px}
+.legend span{display:flex;align-items:center;gap:7px}
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.f{border:1px solid var(--line);background:transparent;color:var(--muted);padding:8px 16px;border-radius:99px;font:500 .9rem var(--body);cursor:pointer}
+.f:hover{color:var(--text);border-color:var(--a2)}
+.f[aria-pressed=true]{background:rgba(34,211,238,.12);border-color:var(--a1);color:var(--text)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pc{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .2s,transform .2s}
+.pc:hover{border-color:var(--a2);transform:translateY(-3px)}
+.thumb{aspect-ratio:16/9;background:var(--bg2);border-bottom:1px solid var(--line)}
+.thumb svg{width:100%;height:100%;display:block}
+.pb{padding:20px;display:flex;flex-direction:column;gap:12px;flex:1}
+.pb h3{font-size:1.1rem}
+.pb p{color:var(--muted);font-size:.92rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.76rem;color:var(--a2);background:rgba(56,189,248,.08);border:1px solid var(--line);padding:2px 9px;border-radius:6px}
+.row{display:flex;justify-content:space-between;align-items:center}
+.status{font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:99px;border:1px solid var(--line)}
+.s-completed{color:#4ade80}.s-inprogress{color:var(--a1)}.s-planned{color:var(--muted)}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;align-items:center}
+.more{margin-left:auto;color:var(--a1);font-weight:600;font-size:.9rem}
+.more:hover{text-decoration:underline}
+.empty{color:var(--muted);padding:24px;border:1px dashed var(--line);border-radius:14px}
+/* education */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.big{grid-column:1/-1}
+.big h3{font-size:1.4rem}
+.ph{color:var(--muted);font-size:.92rem;font-style:italic}
+.explore{margin-top:56px}
+.explore h3{margin-bottom:18px;font-size:1.3rem}
+/* contact */
+.cgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+.clinks{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.clinks a,.clinks .off{display:flex;gap:12px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.clinks a:hover{border-color:var(--a1)}.off{color:var(--muted);font-size:.9rem}
+form{display:grid;gap:16px}
+label{display:grid;gap:6px;font-size:.88rem;font-weight:500}
+input,textarea{background:var(--card);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:12px 14px;font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--a1);outline-offset:0;border-color:var(--a1)}
+textarea{min-height:130px;resize:vertical}
+.err{color:#fda4af;font-size:.82rem;min-height:1em}
+.note{font-size:.88rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:40px 0;background:var(--bg2)}
+.fgrid{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+.flinks{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}.flinks a:hover{color:var(--a1)}
+/* detail */
+.back{display:inline-flex;gap:8px;color:var(--a1);font-weight:600;margin-bottom:28px}
+.back:hover{text-decoration:underline}
+.dh{margin-bottom:36px}.dh h1{font-size:clamp(1.9rem,4vw,2.8rem);margin:14px 0}
+.dgrid{display:grid;grid-template-columns:1fr 280px;gap:40px;align-items:start}
+.dsec{margin-bottom:34px}
+.dsec h2{font-size:1.25rem;margin-bottom:10px}
+.dsec p,.dsec li{color:var(--muted)}
+.dsec ul{padding-left:20px;display:grid;gap:6px}
+.side{position:sticky;top:90px;display:grid;gap:16px}
+.dart{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:34px}
+.dart figcaption{font-size:.8rem;color:var(--muted);padding:8px 14px;background:var(--bg2)}
+.dart svg{display:block;width:100%;height:auto}
+/* responsive */
+@media(max-width:960px){
+.hgrid,.about,.cgrid,.dgrid{grid-template-columns:1fr}
+.grid3,.skills,.pgrid{grid-template-columns:repeat(2,1fr)}
+.side{position:static}
+}
+@media(max-width:780px){
+section{padding:64px 0}
+.burger{display:grid;place-items:center}
+nav ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg2);border-bottom:1px solid var(--line);padding:12px 24px}
+nav ul.open{display:flex}
+.nav>nav{position:static}
+.cvbtn{display:none}
+}
+@media(max-width:620px){
+.grid3,.skills,.pgrid,.edu{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a href="#home" class="logo" aria-label="Gopi, home">GOPI<span>.</span></a>
+  <nav aria-label="Main">
+   <ul id="menu">
+    <li><a class="l" href="#home">Home</a></li>
+    <li><a class="l" href="#about">About Me</a></li>
+    <li><a class="l" href="#skills">Skills</a></li>
+    <li><a class="l" href="#projects">Projects</a></li>
+    <li><a class="l" href="#education">Education</a></li>
+    <li><a class="l" href="#contact">Contact</a></li>
+   </ul>
+  </nav>
+  <div class="right">
+   <a class="btn sm cvbtn" id="cvLink" hidden download>Download CV</a>
+   <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">&#9776;</button>
+  </div>
+ </div>
+</header>
+
+<main id="main">
+ <div id="homeView">
+ <section id="home" class="hero">
+  <div class="wrap hgrid">
+   <div>
+    <p class="eyebrow">COMPUTER ENGINEERING · SOFTWARE · AI</p>
+    <h1>Building intelligent software and the systems behind it.</h1>
+    <p class="lead">I’m a Computer Engineering student at Queen’s University Belfast, exploring software engineering, applied AI, backend systems, and financial technology through practical projects.</p>
+    <div class="actions">
+     <a class="btn p" href="#projects">Explore My Projects</a>
+     <a class="btn" href="#contact">Contact Me</a>
+    </div>
+    <div class="portrait-frame">
+     <!-- Replace this file with your own portrait later: assets/profile-portrait.jpg -->
+     <img src="assets/profile-portrait.jpg" alt="Editable placeholder portrait for Gopi's portfolio">
+     <span class="portrait-note">Replace with your own photo anytime</span>
+    </div>
+   </div>
+   <div class="art" aria-hidden="true">
+    <svg viewBox="0 0 440 340" fill="none">
+     <g stroke="#20364F" stroke-width="1.5" fill="#0B1B30">
+      <rect x="20" y="40" width="110" height="60" rx="10"/><rect x="165" y="20" width="110" height="60" rx="10"/>
+      <rect x="165" y="130" width="110" height="60" rx="10"/><rect x="310" y="40" width="110" height="60" rx="10"/>
+      <rect x="310" y="150" width="110" height="60" rx="10"/><rect x="90" y="240" width="110" height="60" rx="10"/><rect x="250" y="250" width="110" height="60" rx="10"/>
+     </g>
+     <g stroke="#22D3EE" stroke-width="1.5" class="flow" opacity=".8">
+      <path d="M130 70H165"/><path d="M130 80L165 150"/><path d="M275 50L310 60"/><path d="M275 160H310"/><path d="M220 190L160 240"/><path d="M230 190L290 250"/><path d="M365 100V150"/>
+     </g>
+     <g fill="#F8FAFC" font-family="DM Sans,sans-serif" font-size="13" text-anchor="middle">
+      <text x="75" y="75">Client</text><text x="220" y="55">API</text><text x="220" y="165">Engine</text><text x="365" y="75">Dashboard</text>
+      <text x="365" y="185">Database</text><text x="145" y="275">Tests</text><text x="305" y="285">Deploy</text>
+     </g>
+     <circle cx="220" cy="20" r="4" fill="#22D3EE" class="pulse"/><circle cx="365" cy="150" r="4" fill="#38BDF8" class="pulse"/><circle cx="160" cy="240" r="4" fill="#22D3EE" class="pulse"/>
+    </svg>
+   </div>
+  </div>
+ </section>
+
+ <section id="about" class="alt">
+  <div class="wrap">
+   <h2>About Me</h2>
+   <div class="about">
+    <p>I’m studying BEng Computer Engineering at Queen’s University Belfast, graduating in 2028. I want to understand how software systems are designed, implemented, tested, and deployed, not only how to write the code.</p>
+    <p>I learn by building, testing, and improving projects. Python is my strongest language, and I use projects to practise backend APIs, applied machine learning, and financial technology ideas.</p>
+   </div>
+   <div class="grid3">
+    <div class="card"><div class="ico">⚙</div><h3>Engineering Foundations</h3><p>A degree grounding in hardware, software and the mathematics behind both.</p></div>
+    <div class="card"><div class="ico">⌨</div><h3>Practical Software Projects</h3><p>Small systems built end to end: design, code, test, and deploy.</p></div>
+    <div class="card"><div class="ico">◈</div><h3>Exploring AI and FinTech</h3><p>Learning machine learning and trading and risk concepts by implementing them.</p></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="skills">
+  <div class="wrap">
+   <h2>Technical Skills</h2>
+   <p class="sub">Starting categories I’m building on. Each label shows how I currently use the technology.</p>
+   <div class="skills" id="skillGrid"></div>
+   <div class="legend">
+    <span><i class="dot used"></i>Used in a project</span><span><i class="dot learning"></i>Currently learning</span><span><i class="dot exploring"></i>Exploring</span>
+   </div>
+  </div>
+ </section>
+
+ <section id="projects" class="alt">
+  <div class="wrap">
+   <h2>Projects</h2>
+   <p class="sub">Projects that turn engineering concepts into working software.</p>
+   <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+   <div class="pgrid" id="pgrid" aria-live="polite"></div>
+  </div>
+ </section>
+
+ <section id="education">
+  <div class="wrap">
+   <h2>Education</h2>
+   <p class="sub">Add details below as they become relevant and verified.</p>
+   <div class="edu">
+    <div class="card big"><h3>Queen’s University Belfast</h3><p>BEng Computer Engineering · Expected graduation: 2028</p></div>
+    <div class="card"><h3>Relevant modules</h3><p class="ph" data-edit="modules">Add your modules here.</p></div>
+    <div class="card"><h3>Coursework</h3><p class="ph" data-edit="coursework">Add coursework here.</p></div>
+    <div class="card"><h3>Academic projects</h3><p class="ph" data-edit="academic">Add academic projects here.</p></div>
+    <div class="card"><h3>Additional learning</h3><p class="ph" data-edit="learning">Add online courses or self-study here.</p></div>
+    <div class="card"><h3>Certifications</h3><p class="ph" data-edit="certs">Add certifications only once earned.</p></div>
+   </div>
+   <div class="explore">
+    <h3>Currently exploring</h3>
+    <div class="grid3">
+     <div class="card"><h3>Software and Systems</h3><p>Data structures, backend APIs, software architecture, testing, and deployment.</p></div>
+     <div class="card"><h3>Applied AI</h3><p>Machine learning fundamentals and practical AI-enabled applications.</p></div>
+     <div class="card"><h3>FinTech Engineering</h3><p>Trading systems, options pricing, and risk modelling.</p></div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="contact" class="alt">
+  <div class="wrap cgrid">
+   <div>
+    <h2>Let’s Connect</h2>
+    <p class="muted">I’m interested in connecting with engineers, developers, and teams working on software, AI, cloud systems, and financial technology.</p>
+    <div class="clinks" id="clinks"></div>
+   </div>
+   <form id="form" novalidate>
+    <label>Name<input name="name" autocomplete="name" required><span class="err" data-for="name"></span></label>
+    <label>Email<input name="email" type="email" autocomplete="email" required><span class="err" data-for="email"></span></label>
+    <label>Subject<input name="subject" required><span class="err" data-for="subject"></span></label>
+    <label>Message<textarea name="message" required></textarea><span class="err" data-for="message"></span></label>
+    <button class="btn p" type="submit">Send message</button>
+    <p class="note" id="formNote" role="status"></p>
+   </form>
+  </div>
+ </section>
+ </div>
+
+ <div id="detailView" hidden><div class="wrap" style="padding-top:48px;padding-bottom:80px" id="detail"></div></div>
+</main>
+
+<footer>
+ <div class="wrap fgrid">
+  <div><a href="#home" class="logo">GOPI<span>.</span></a><p class="muted" style="font-size:.9rem;margin-top:6px">Computer Engineering student building software, one project at a time.</p></div>
+  <div class="flinks">
+   <a href="#about">About Me</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+   <a id="fGit" href="#" hidden target="_blank" rel="noopener">GitHub</a><a id="fLin" href="#" hidden target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+ </div>
+ <div class="wrap muted" style="margin-top:24px;font-size:.85rem">© <span id="yr"></span> Gopi. All rights reserved.</div>
+</footer>
+
+<script>
+/* ===== EDIT YOUR DETAILS HERE ===== */
+const CONFIG = {
+  email: "",      // e.g. "you@example.com"
+  github: "",     // e.g. "https://github.com/yourname"
+  linkedin: "",   // e.g. "https://www.linkedin.com/in/yourname"
+  cv: ""          // e.g. "cv.pdf" (place the file next to index.html)
+};
+/* status: "used" | "learning" | "exploring" — only use "used" when true */
+const SKILLS = [
+  {title:"Programming", items:[["Python","used"],["C++","learning"]]},
+  {title:"Backend and application development", items:[["FastAPI","learning"],["REST APIs","learning"],["WebSockets","exploring"]]},
+  {title:"Web", items:[["HTML","learning"],["CSS","learning"],["JavaScript","learning"]]},
+  {title:"Tools and data", items:[["Git","learning"],["GitHub","learning"],["SQL and databases","exploring"]]},
+  {title:"AI and machine learning", items:[["Data preprocessing","learning"],["Machine learning fundamentals","learning"],["AI application development","exploring"]]},
+  {title:"Cloud", items:[["Cloud fundamentals","exploring"],["Application deployment","exploring"]]}
+];
+/* status: "Completed" | "In Progress" | "Planned". Leave github/demo empty to hide buttons. */
+const PROJECTS = [
+ {slug:"order-matching-engine", title:"Real-Time Order Matching Engine", status:"In Progress", categories:["Software Engineering","FinTech"],
+  summary:"Explores how buy and sell orders are matched in a simulated trading system, with live order-book updates.",
+  tags:["Python","FastAPI","WebSockets","JavaScript","Chart.js"], github:"", demo:"", art:"book",
+  overview:"A simulated trading system that explores how buy and sell orders are matched and how an order book changes over time.",
+  problem:"Trading systems must match orders fairly and quickly. This project explores how that logic works in a small, testable system.",
+  objectives:["Accept simulated buy and sell orders","Match orders by price and time priority","Show order-book updates in a browser"],
+  stack:["Python","FastAPI","WebSockets","JavaScript","Chart.js"],
+  features:[], how:"Orders are submitted to an API, passed to the matching logic, and results are pushed to the browser. Update this once the design is final.",
+  challenges:"Add the real challenges and solutions as you meet them.", testing:"Describe the tests you have actually written.",
+  learned:"Add what you learned from building it.", future:["Add planned improvements"]},
+ {slug:"options-pricing-risk-engine", title:"Options Pricing and Risk Engine", status:"In Progress", categories:["FinTech","Software Engineering"],
+  summary:"Explores options valuation and risk calculations, including Black–Scholes, Monte Carlo and the Greeks.",
+  tags:["Python","Black–Scholes","Monte Carlo","REST API"], github:"", demo:"", art:"curve",
+  overview:"A project that explores how European options are valued and how their risk is measured.",
+  problem:"Options prices depend on several inputs. This project explores calculating prices and sensitivities and exposing them through an API.",
+  objectives:["Price European options with Black–Scholes","Compare with Monte Carlo simulation","Calculate option Greeks","Expose calculations through an API"],
+  stack:["Python","REST API"],
+  features:[], how:"Inputs go to pricing functions and results return through an API. Update with your actual implementation.",
+  challenges:"Add the real challenges and solutions.", testing:"Describe how you validated results (for example, against known values).",
+  learned:"Add what you learned.", future:["Add planned improvements"]},
+ {slug:"credit-risk-modelling", title:"Credit Risk Modelling", status:"Planned", categories:["AI / ML","FinTech"],
+  summary:"Explores predicting credit default risk from borrower data using data preprocessing and logistic regression.",
+  tags:["Python","Pandas","scikit-learn","Logistic Regression"], github:"", demo:"", art:"scatter",
+  overview:"A machine learning project exploring how borrower data can be used to estimate the risk of credit default.",
+  problem:"Lenders need to estimate default risk. This project explores doing so with a simple, explainable model.",
+  objectives:["Clean and prepare borrower data","Explore the data visually","Train a logistic regression model","Evaluate the model"],
+  stack:["Python","Pandas","scikit-learn"],
+  features:[], how:"Data is cleaned, explored, used to train a model, and evaluated. Update when built.",
+  challenges:"Add the real challenges and solutions.", testing:"Describe your evaluation method and results once you have them.",
+  learned:"Add what you learned.", future:["Add planned improvements"]},
+ {slug:"ai-email-automation", title:"AI Email Automation Agent", status:"Planned", categories:["Automation","AI / ML"],
+  summary:"Explores email classification and workflow automation using an AI model and connected tools.",
+  tags:["n8n","Gmail","AI model","Google Sheets"], github:"", demo:"", art:"flow",
+  overview:"A workflow project exploring how incoming email can be classified and routed automatically.",
+  problem:"Sorting email by hand is repetitive. This project explores automating classification and logging.",
+  objectives:["Read incoming email","Classify it with an AI model","Log results to a spreadsheet"],
+  stack:["n8n","Gmail","AI model","Google Sheets"],
+  features:[], how:"A workflow triggers on new email, classifies it, and records the result. Update with the steps you have tested.",
+  challenges:"Add the real challenges and solutions.", testing:"Describe how you tested the workflow.",
+  learned:"Add what you learned.", future:["Add planned improvements"]}
+];
+const CATS=["All","Software Engineering","AI / ML","FinTech","Automation"];
+
+/* ===== helpers ===== */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const slug=s=>s.toLowerCase().replace(/[^a-z]+/g,"");
+$("#yr").textContent=new Date().getFullYear();
+
+/* links */
+[["hGit","fGit",CONFIG.github],["hLin","fLin",CONFIG.linkedin]].forEach(([a,b,u])=>{
+  if(u){[a,b].forEach(id=>{const e=$("#"+id);e.href=u;e.hidden=false;});}
+});
+if(CONFIG.cv){const c=$("#cvLink");c.href=CONFIG.cv;c.hidden=false;}
+
+/* skills */
+$("#skillGrid").innerHTML=SKILLS.map(g=>`<div class="card"><h3>${esc(g.title)}</h3><div class="chips">${
+  g.items.map(([n,s])=>`<span class="chip"><i class="dot ${s}"></i>${esc(n)}<span class="sr" style="position:absolute;left:-9999px">(${s})</span></span>`).join("")}</div></div>`).join("");
+
+/* art */
+const ART={
+ book:`<g fill="#22D3EE" opacity=".5"><rect x="40" y="30" width="60" height="8"/><rect x="60" y="46" width="40" height="8"/><rect x="50" y="62" width="50" height="8"/></g><g fill="#38BDF8" opacity=".5"><rect x="180" y="30" width="45" height="8"/><rect x="180" y="46" width="62" height="8"/><rect x="180" y="62" width="38" height="8"/></g><path d="M100 100H160" stroke="#22D3EE" stroke-dasharray="4 5"/><path d="M30 130L80 110L130 118L180 90L240 100" stroke="#38BDF8" stroke-width="2" fill="none"/>`,
+ curve:`<path d="M20 150C90 150 120 140 150 100S220 30 260 30" stroke="#22D3EE" stroke-width="2.5" fill="none"/><path d="M20 150C80 150 130 135 160 110S220 60 260 55" stroke="#38BDF8" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/><path d="M20 160H260M20 20V160" stroke="#20364F"/>`,
+ scatter:`<g fill="#22D3EE" opacity=".7"><circle cx="50" cy="120" r="4"/><circle cx="80" cy="105" r="4"/><circle cx="110" cy="110" r="4"/><circle cx="90" cy="130" r="4"/></g><g fill="#38BDF8" opacity=".7"><circle cx="170" cy="60" r="4"/><circle cx="200" cy="45" r="4"/><circle cx="220" cy="75" r="4"/><circle cx="190" cy="80" r="4"/></g><path d="M30 150L250 30" stroke="#94A3B8" stroke-dasharray="5 5"/>`,
+ flow:`<g stroke="#20364F" fill="#0E2036"><rect x="25" y="65" width="60" height="40" rx="8"/><rect x="110" y="65" width="60" height="40" rx="8"/><rect x="195" y="65" width="60" height="40" rx="8"/></g><path d="M85 85H110M170 85H195" stroke="#22D3EE" stroke-width="2"/><g fill="#94A3B8" font-size="11" font-family="sans-serif" text-anchor="middle"><text x="55" y="90">Email</text><text x="140" y="90">Classify</text><text x="225" y="90">Log</text></g>`
+};
+const art=k=>`<svg viewBox="0 0 280 170" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrative graphic, not a screenshot">${ART[k]}</svg>`;
+
+/* projects */
+let active="All";
+function renderFilters(){
+  $("#filters").innerHTML=CATS.map(c=>`<button class="f" aria-pressed="${c===active}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+  $$(".f").forEach(b=>b.onclick=()=>{active=b.dataset.c;renderFilters();renderGrid();});
+}
+function renderGrid(){
+  const list=PROJECTS.filter(p=>active==="All"||p.categories.includes(active));
+  $("#pgrid").innerHTML=list.length?list.map(p=>`<article class="pc"><div class="thumb">${art(p.art)}</div><div class="pb">
+   <div class="row"><h3>${esc(p.title)}</h3></div>
+   <div class="row"><span class="status s-${slug(p.status)}">${esc(p.status)}</span></div>
+   <p>${esc(p.summary)}</p>
+   <div class="tags">${p.tags.slice(0,5).map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>
+   <div class="pbtns">
+    ${p.github?`<a class="btn sm" href="${esc(p.github)}" target="_blank" rel="noopener" aria-label="${esc(p.title)} on GitHub">GitHub</a>`:""}
+    ${p.demo?`<a class="btn sm p" href="${esc(p.demo)}" target="_blank" rel="noopener">Live Demo</a>`:""}
+    <a class="more" href="#/projects/${p.slug}" aria-label="View details of ${esc(p.title)}">View Details</a>
+   </div></div></article>`).join(""):`<p class="empty">No projects in this category yet.</p>`;
+}
+renderFilters();renderGrid();
+
+/* detail */
+const sec=(h,body)=>`<div class="dsec"><h2>${h}</h2>${body}</div>`;
+function renderDetail(p){
+  document.title=p.title+" | Gopi";
+  const ul=a=>`<ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
+  $("#detail").innerHTML=`<a class="back" href="#projects">← Back to Projects</a>
+  <div class="dh"><span class="status s-${slug(p.status)}">${esc(p.status)}</span><h1>${esc(p.title)}</h1><p class="muted" style="max-width:62ch">${esc(p.summary)}</p></div>
+  <div class="dgrid"><div>
+   <figure class="dart"><svg viewBox="0 0 280 170" style="background:var(--bg2)" role="img" aria-label="Illustrative graphic">${ART[p.art]}</svg><figcaption>Illustrative graphic. Replace with a real screenshot or architecture diagram.</figcaption></figure>
+   ${sec("Project overview",`<p>${esc(p.overview)}</p>`)}
+   ${sec("Problem being solved",`<p>${esc(p.problem)}</p>`)}
+   ${sec("Objectives",ul(p.objectives))}
+   ${sec("Key features implemented",p.features.length?ul(p.features):`<p>Nothing listed yet. Add features here once they are built and working.</p>`)}
+   ${sec("How the system works",`<p>${esc(p.how)}</p>`)}
+   ${sec("Challenges and solutions",`<p>${esc(p.challenges)}</p>`)}
+   ${sec("Testing and validation",`<p>${esc(p.testing)}</p>`)}
+   ${sec("What I learned",`<p>${esc(p.learned)}</p>`)}
+   ${sec("Future improvements",ul(p.future))}
+  </div>
+  <aside class="side">
+   <div class="card"><h3>Technology stack</h3><div class="tags" style="margin-top:10px">${p.stack.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div></div>
+   <div class="card"><h3>Links</h3><div class="pbtns" style="margin-top:10px">
+    ${p.github?`<a class="btn sm" href="${esc(p.github)}" target="_blank" rel="noopener">GitHub repository</a>`:`<span class="muted" style="font-size:.88rem">Repository link coming soon.</span>`}
+    ${p.demo?`<a class="btn sm p" href="${esc(p.demo)}" target="_blank" rel="noopener">Live Demo</a>`:""}
+   </div></div>
+  </aside></div>`;
+}
+
+/* routing */
+function route(){
+  const h=location.hash, m=h.match(/^#\/projects\/([\w-]+)/);
+  const p=m&&PROJECTS.find(x=>x.slug===m[1]);
+  if(p){
+    $("#homeView").hidden=true;$("#detailView").hidden=false;renderDetail(p);window.scrollTo(0,0);
+    $$("nav a.l").forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#projects"));
+  }else{
+    document.title="Gopi | Computer Engineering Student, QUB";
+    const was=$("#homeView").hidden;
+    $("#homeView").hidden=false;$("#detailView").hidden=true;
+    if(was){const t=h&&h.length>1&&!h.startsWith("#/")?$(h):null;setTimeout(()=>t?t.scrollIntoView():window.scrollTo(0,0),0);}
+  }
+  $("#menu").classList.remove("open");$("#burger").setAttribute("aria-expanded","false");
+}
+addEventListener("hashchange",route);route();
+
+/* active section */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting&&!$("#homeView").hidden)
+    $$("nav a.l").forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id));});
+},{rootMargin:"-45% 0px -50% 0px"});
+$$("#homeView section").forEach(s=>io.observe(s));
+
+/* mobile menu */
+$("#burger").onclick=()=>{const o=$("#menu").classList.toggle("open");$("#burger").setAttribute("aria-expanded",o);};
+addEventListener("keydown",e=>{if(e.key==="Escape"){$("#menu").classList.remove("open");$("#burger").setAttribute("aria-expanded","false");}});
+
+/* contact */
+$("#clinks").innerHTML=[["Email",CONFIG.email&&"mailto:"+CONFIG.email,CONFIG.email],["GitHub",CONFIG.github,CONFIG.github],["LinkedIn",CONFIG.linkedin,CONFIG.linkedin]]
+ .map(([n,h,t])=>h?`<a href="${esc(h)}" ${n==="Email"?"":'target="_blank" rel="noopener"'}><strong>${n}</strong><span class="muted">${esc(t)}</span></a>`:`<div class="off"><strong>${n}</strong> – add yours in CONFIG</div>`).join("");
+$("#form").addEventListener("submit",e=>{
+  e.preventDefault();const f=e.target,note=$("#formNote");let ok=true;
+  $$(".err",f).forEach(x=>x.textContent="");
+  ["name","email","subject","message"].forEach(k=>{
+    const v=f[k].value.trim();let m="";
+    if(!v)m="This field is required.";else if(k==="email"&&!/^\S+@\S+\.\S+$/.test(v))m="Enter a valid email address.";
+    if(m){ok=false;$(`[data-for=${k}]`).textContent=m;}
+  });
+  if(!ok){note.textContent="Fix the highlighted fields and try again.";return;}
+  if(!CONFIG.email){note.textContent="Email isn’t configured yet. Add your address to CONFIG in index.html to enable this form.";return;}
+  const body=`${f.message.value}\n\nFrom: ${f.name.value} (${f.email.value})`;
+  location.href=`mailto:${CONFIG.email}?subject=${encodeURIComponent(f.subject.value)}&body=${encodeURIComponent(body)}`;
+  note.textContent="Your email app should open with the message ready. Press send there to finish.";
+});
+</script>
+</body>
+</html>
